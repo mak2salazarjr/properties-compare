@@ -42,12 +42,12 @@ export = (app: Application) => {
 
     const propertyPresentIndicator = "<td style='color: #008000'>&#10004;</td>";
     let propertyMissingIndicator = "<td style='color: #ff0000'>🛑</td>";
-    let comment = "";
+    let comment = "The following properties were found:\n";
     comment += "<table style='width:100%'><tr><th></th>";
-    propertiesFileNames.forEach(propertiesFileName => comment += "<th>" + propertiesFileName + "</th>");
+    propertiesFileNames.forEach(propertiesFileName => comment += "<th><i>" + propertiesFileName + "</i></th>");
     comment += "</tr><tr>";
     propertiesMap.forEach((propertyMap, propertyName) => {
-      comment += "<td>" + propertyName + "</td>";
+      comment += "<td><b>" + propertyName + "</b></td>";
       propertiesFileNames.forEach(propertiesFileName => {
         if (propertyMap.has(propertiesFileName)) {
           comment += propertyPresentIndicator;
